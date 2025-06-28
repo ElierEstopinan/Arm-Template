@@ -1,3 +1,42 @@
-# Intructions for Project: 
-https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code?tabs=CLI
+# ARM Template Quickstart with Visual Studio Code
 
+This project demonstrates how to create and validate an Azure Resource Manager (ARM) template using the **Azure Resource Manager Tools** extension for **Visual Studio Code**. It showcases core capabilities including template snippets, parameter files, validation, and deployment via the Azure CLI.
+
+## 📌 Overview
+
+The goal of this quickstart is to:
+
+- Scaffold an ARM template from scratch using VS Code snippets.
+- Add and configure a resource (Azure Storage Account).
+- Create and use parameters with validation constraints.
+- Generate and link a parameter file.
+- Deploy the template using the Azure CLI.
+- Validate and correct errors using integrated feedback.
+
+## 🧰 Tools & Requirements
+
+- [Visual Studio Code](https://code.visualstudio.com/)
+- [Azure Resource Manager Tools Extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
+- [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) or Azure PowerShell
+- An active [Azure subscription](https://azure.microsoft.com/en-us/free/)
+
+## 🚀 Quickstart Steps
+
+### 1. Create and Scaffold the Template
+
+1. Create a new file: `azuredeploy.json`
+2. Type `arm!` and select the snippet for a resource group–scoped template.
+3. The scaffolded structure includes `parameters`, `variables`, `resources`, and `outputs`.
+
+### 2. Add a Resource
+
+- Within the `resources` array, type `storage` and select the `arm-storage` snippet.
+- Use `Tab` to move through and fill out resource properties like `name`, `sku`, and `kind`.
+
+### 3. Add a Parameter
+
+- In the `parameters` block, add a new parameter using the `new-parameter` snippet.
+- Rename to `storageAccountName` and set:
+  ```json
+  "minLength": 3,
+  "maxLength": 24
